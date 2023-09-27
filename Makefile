@@ -3,8 +3,6 @@ build:
 
 docker.build:
 	@make build
-	docker build -t docker-redis .
-
 up:
 	@make docker.build
 	export TAG_COMMIT="docker-redis"
