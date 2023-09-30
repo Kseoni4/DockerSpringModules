@@ -9,6 +9,7 @@ publish-docker:
   tags: 
     - spring_modules
   image: docker
+  privilage: true
   services:
     - docker:stable
   before_script:
