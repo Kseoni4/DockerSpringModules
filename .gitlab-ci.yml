@@ -8,13 +8,9 @@ publish-docker:
   stage: publish
   tags: 
     - spring_modules
-  image: docker
-  privileged: true
-  services:
-    - docker:stable
+  image: openjdk17
   before_script:
-    - apk update && apk add make
-    - apk add maven && apk add openjdk17
+    - apt update && apt -y install make && apt -y install maven
   script:
     - uname -a
     - whoami
