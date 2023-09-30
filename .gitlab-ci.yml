@@ -1,7 +1,7 @@
 variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
-image: maven:3.8.5-openjdk-17
+image: docker
 
 deploy:
   stage: deploy
@@ -9,7 +9,9 @@ deploy:
     - spring_modules
   before_script:
     - apk update && apk add make
+    - apk add maven && apk add openjdk17
   script:
     - uname -a
     - whoami
+    - java --version
     - make up
