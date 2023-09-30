@@ -10,4 +10,6 @@ publish-docker:
   services:
     - docker:dind
   script:
+    - uname -a
+    - whoami
     - make up
