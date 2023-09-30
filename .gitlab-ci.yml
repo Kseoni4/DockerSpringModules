@@ -10,7 +10,7 @@ publish-docker:
     - spring_modules
   image: docker
   services:
-    - docker:dind
+    - docker:stable
   before_script:
     - apk update && apk add make
     - apk add maven && apk add openjdk17
