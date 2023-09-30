@@ -1,6 +1,7 @@
 variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
+image: openjdk17
 stages:
   - publish 
 
@@ -8,7 +9,6 @@ publish-docker:
   stage: publish
   tags: 
     - spring_modules
-  image: openjdk17
   before_script:
     - apt update && apt -y install make && apt -y install maven
   script:
