@@ -6,7 +6,8 @@ stages:
 
 publish-docker:
   stage: publish
-  tags: spring_modules
+  tags: 
+    - spring_modules
   image: docker
   services:
     - docker:dind
