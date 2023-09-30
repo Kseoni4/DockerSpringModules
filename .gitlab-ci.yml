@@ -11,6 +11,9 @@ publish-docker:
   image: docker
   services:
     - docker:dind
+  before-script:
+    - apt-get update
+    - apt install make
   script:
     - uname -a
     - whoami
