@@ -12,6 +12,7 @@ publish-docker:
   services:
     - docker:dind
   before_script:
+    - export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
     - apk update && apk add make
   script:
     - uname -a
