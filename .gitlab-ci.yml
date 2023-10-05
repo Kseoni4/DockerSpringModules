@@ -17,6 +17,8 @@ deploy:
   stage: deploy
   environment:
     name: server
+  services: 
+    - docker:dind
   tags:
     - spring_modules
   before_script:
