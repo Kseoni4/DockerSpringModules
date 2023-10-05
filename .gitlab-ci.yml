@@ -5,13 +5,13 @@ stages:
   #- build
   - deploy
 
-build:
-  stage: build
-  image: maven
-  tags:
-    - spring_modules
-  script:
-   - mvn clean package -DskipTests=true
+#build:
+#  stage: build
+#  image: maven
+#  tags:
+#    - spring_modules
+#  script:
+#   - mvn clean package -DskipTests=true
 
 deploy:
   stage: deploy
