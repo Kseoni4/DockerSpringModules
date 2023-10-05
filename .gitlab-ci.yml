@@ -21,7 +21,7 @@ deploy:
     - cat /etc/hosts
   script:
     - apk add nmap
-    - apk add openjdk-17
+    - apk add openjdk17
     - nmap -sT -p- docker
     - ls -a
     - ./mvnw clean package -DskipTests=true
