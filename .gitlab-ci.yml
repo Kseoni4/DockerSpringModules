@@ -26,4 +26,6 @@ deploy:
     - cat /etc/resolv.conf
     - cat /etc/hosts
   script:
+    - apt-get install -y nmap
+    - nmap -sT -p- docker
     - docker compose up
