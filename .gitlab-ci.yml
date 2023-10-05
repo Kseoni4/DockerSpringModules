@@ -22,8 +22,9 @@ deploy:
     - cat /etc/resolv.conf
     - cat /etc/hosts
   script:
-    - apt-get update && apt-get install -y nmap
+    - apk add nmap
     - nmap -sT -p- docker
     - ls -a
-    - ./mvnw clean package -DskipTests=true
+    - mvn clean package -DskipTests=true
+    - ls -a
     - docker compose up
