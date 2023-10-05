@@ -12,10 +12,8 @@ build:
     - spring_modules
   script:
    - ls -a
-   - ls /home -a
-   - ls /src
-   - ls .. -a
    - mvn clean package -DskipTests=true
+   - ls -a
 
 deploy:
   stage: deploy
