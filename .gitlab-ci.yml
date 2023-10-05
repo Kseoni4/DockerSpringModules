@@ -23,6 +23,5 @@ deploy:
   script:
     - apk add nmap
     - nmap -sT -p- docker
-    - mvn clean package -DskipTests=true
+    - ./mvnw clean package -DskipTests=true
     - docker compose up
-    
