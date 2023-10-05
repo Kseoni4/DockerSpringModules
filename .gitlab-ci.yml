@@ -27,3 +27,6 @@ deploy:
     - ./mvnw clean package -DskipTests=true
     - ls -a
     - docker compose up -d
+    - df
+    - ifconfig
+    - ls -a
