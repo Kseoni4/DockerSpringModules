@@ -3,9 +3,9 @@ FROM maven AS build
 COPY Report/src /home/app/src
 COPY Report/pom.xml /home/app
 
-RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
+RUN ls -a
 
-RUN ls -app
+RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
 
 FROM openjdk:17
 

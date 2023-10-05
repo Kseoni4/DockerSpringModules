@@ -1,11 +1,11 @@
-FROM maven as build
+FROM maven AS build
 
 COPY Client/src /home/app/src
 COPY Client/pom.xml /home/app
 
-RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
-
 RUN ls -a
+
+RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
 
 FROM openjdk:17
 
