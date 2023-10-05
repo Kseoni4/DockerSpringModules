@@ -1,14 +1,7 @@
-FROM maven AS build
-
-COPY Report/src /home/app/src
-COPY Report/pom.xml /home/app
+FROM openjdk:17
 
 RUN ls -a
 
-RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
-
-FROM openjdk:17
-
-COPY --from=build /home/app/target/Report.jar application.jar
+COPY Report/target/Report.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]

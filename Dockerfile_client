@@ -2,6 +2,6 @@ FROM openjdk:17
 
 RUN ls -a
 
-#COPY Client/target/Client.jar application.jar
+COPY Client/target/Client.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]
