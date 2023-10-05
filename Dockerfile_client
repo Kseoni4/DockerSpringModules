@@ -1,4 +1,4 @@
-FROM maven
+FROM maven as build
 
 COPY Client/src /home/app/src
 COPY Client/pom.xml /home/app
@@ -9,6 +9,6 @@ RUN ls -a
 
 FROM openjdk:17
 
-COPY /home/app/target/Client.jar application.jar
+COPY --from=build /home/app/target/Client.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]

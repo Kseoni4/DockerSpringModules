@@ -1,4 +1,4 @@
-FROM maven
+FROM maven AS build
 
 COPY Report/src /home/app/src
 COPY Report/pom.xml /home/app
@@ -9,6 +9,6 @@ RUN ls -app
 
 FROM openjdk:17
 
-COPY /home/app/target/Report.jar application.jar
+COPY --from=build /home/app/target/Report.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]
