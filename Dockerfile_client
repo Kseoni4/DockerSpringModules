@@ -1,5 +1,7 @@
-FROM openjdk:17
+FROM maven
 
-COPY ./Client/target/Client.jar application.jar
+RUN mvn clean package -DskipTests=true
+
+COPY Client/target/Client.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]
