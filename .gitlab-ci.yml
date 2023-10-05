@@ -22,7 +22,7 @@ deploy:
   tags:
     - spring_modules
   variables:
-    DOCKER_HOST: tcp://docker:2376/
+    #DOCKER_HOST: tcp://docker:2376/
     DOCKER_TLS_CERTDIR: ""
   before_script:
     - df
