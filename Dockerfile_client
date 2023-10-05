@@ -1,5 +1,5 @@
 FROM openjdk:17
 
-COPY Client/target/Client.jar application.jar
+COPY ./Client/target/Client.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]
