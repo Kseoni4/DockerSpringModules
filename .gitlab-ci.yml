@@ -1,7 +1,7 @@
 variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
-image: maven
+image: docker:dind
 
 stages:
   - build_and_deploy
@@ -11,7 +11,7 @@ deploy:
   environment:
     name: server
   services: 
-    - docker:dind
+    - maven
   tags:
     - spring_modules
   variables:
