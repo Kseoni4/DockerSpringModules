@@ -16,8 +16,13 @@ build:
 
 deploy:
   stage: deploy
+  environment:
+    name: server
   tags:
     - spring_modules
+    before_script:
+    - df
+    - cat /etc/resolv.conf
+    - cat /etc/hosts
   script:
     - docker-compose up -d
-  #enviroment:
