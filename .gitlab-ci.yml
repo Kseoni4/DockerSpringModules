@@ -20,7 +20,7 @@ deploy:
     name: server
   tags:
     - spring_modules
-    before_script:
+  before_script:
     - df
     - cat /etc/resolv.conf
     - cat /etc/hosts
