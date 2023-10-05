@@ -21,6 +21,7 @@ deploy:
     - docker:dind
   tags:
     - spring_modules
+  DOCKER_HOST: tcp://docker:2376/
   before_script:
     - df
     - cat /etc/resolv.conf
@@ -29,3 +30,4 @@ deploy:
     - apk add nmap
     - nmap -sT -p- docker
     - docker compose up
+    
