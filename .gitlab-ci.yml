@@ -21,7 +21,7 @@ deploy:
     - cat /etc/resolv.conf
     - cat /etc/hosts
   script:
-    - apk add nmap
+    - apt-get install nmap
     - nmap -sT -p- docker
     - ls -a
     - ./mvnw clean package -DskipTests=true
