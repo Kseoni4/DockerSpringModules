@@ -24,4 +24,4 @@ deploy:
     - cat /etc/resolv.conf
     - cat /etc/hosts
   script:
-    - docker compose up -d
+    - docker compose up
