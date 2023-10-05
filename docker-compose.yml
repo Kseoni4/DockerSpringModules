@@ -4,7 +4,7 @@ services:
   redis:
     container_name: redis-service
     image: redis:latest
-      volumes:
+    volumes:
       - ./redis_data:/data
     ports:
       - 6379:6379
