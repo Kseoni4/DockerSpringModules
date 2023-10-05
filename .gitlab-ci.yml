@@ -1,8 +1,6 @@
 variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
-image: docker:dind
-
 stages:
   - build_and_deploy
 
@@ -11,7 +9,7 @@ deploy:
   environment:
     name: server
   services: 
-    - maven
+    - docker:dind
   tags:
     - spring_modules
   variables:
@@ -23,6 +21,7 @@ deploy:
     - cat /etc/hosts
   script:
     - apk add nmap
+    - apk add openjdk-17
     - nmap -sT -p- docker
     - ls -a
     - ./mvnw clean package -DskipTests=true
