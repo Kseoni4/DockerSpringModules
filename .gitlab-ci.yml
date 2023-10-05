@@ -15,6 +15,7 @@ build:
    - mvn clean package -DskipTests=true
    - ls Client -a
    - ls Report -a
+   - ls Client/target -a
 
 deploy:
   stage: deploy
