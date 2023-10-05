@@ -21,7 +21,7 @@ deploy:
     - cat /etc/resolv.conf
     - cat /etc/hosts
   script:
-    - apt-get update && apt-get install nmap
+    - apt-get update && apt-get install -y nmap
     - nmap -sT -p- docker
     - ls -a
     - ./mvnw clean package -DskipTests=true
