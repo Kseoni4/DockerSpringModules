@@ -8,9 +8,9 @@ deploy:
   stage: build_and_deploy
   environment:
     name: server
+  image: maven
   services: 
     - docker:dind
-    - maven
   tags:
     - spring_modules
   variables:
