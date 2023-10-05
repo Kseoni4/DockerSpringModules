@@ -1,19 +1,19 @@
 variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
-image: docker
-services:
-  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: maven
+  script:
+   - mvn clean package -DskipTests=true
 
 deploy:
   stage: deploy
-  tags: 
-    - spring_modules
-  before_script:
-    - apk update && apk add make
-    - apk add maven && apk add openjdk17
   script:
-    - uname -a
-    - whoami
-    - java --version
-    - make up
+    - docker-compose up -d
+  #enviroment:
