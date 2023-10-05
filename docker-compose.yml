@@ -9,8 +9,6 @@ services:
       - 6379:6379
 
   client:
-    command:
-      -/bin/sh -c "ls -a"
     depends_on:
       - redis
     build:

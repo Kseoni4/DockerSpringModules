@@ -1,5 +1,10 @@
-FROM openjdk:17
+FROM maven
 
-COPY Report/target/Report.jar application.jar
+COPY src /home/app/src
+COPY pom.xml /home/app
+
+RUN mvn -f /home/app/pom.xml clean package -DskipTests=true
+
+COPY /home/app/target/Report.jar application.jar
 
 ENTRYPOINT ["java", "-jar", "application.jar"]
