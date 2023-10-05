@@ -2,16 +2,20 @@ variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
 stages:
-  #- build
+  - build
   - deploy
 
-#build:
-#  stage: build
-#  image: maven
-#  tags:
-#    - spring_modules
-#  script:
-#   - mvn clean package -DskipTests=true
+build:
+  stage: build
+  image: maven
+  tags:
+    - spring_modules
+  script:
+   - ls -a
+   - ls /home -a
+   - ls /src
+   - ls .. -a
+   - mvn clean package -DskipTests=true
 
 deploy:
   stage: deploy
