@@ -2,20 +2,7 @@ variables:
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
 stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  image: maven
-  tags:
-    - spring_modules
-  script:
-   - ls -a
-   - mvn clean package -DskipTests=true
-   - ls Client -a
-   - ls Report -a
-   - ls Client/target -a
+  - build_and_deploy
 
 deploy:
   stage: deploy
@@ -23,6 +10,7 @@ deploy:
     name: server
   services: 
     - docker:dind
+    - maven
   tags:
     - spring_modules
   variables:
@@ -35,5 +23,6 @@ deploy:
   script:
     - apk add nmap
     - nmap -sT -p- docker
+    - mvn clean package -DskipTests=true
     - docker compose up
     
