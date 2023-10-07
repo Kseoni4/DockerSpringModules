@@ -8,8 +8,6 @@ deploy:
   stage: build_and_deploy
   environment:
     name: server
-  services: 
-    - docker:dind
   tags:
     - spring_modules
   variables:
@@ -30,6 +28,3 @@ deploy:
     - ifconfig
     - ls -a
     - docker ps
-  artifacts:
-    paths:
-      - target/*.jar
