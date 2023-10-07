@@ -16,7 +16,7 @@ services:
     build:
       dockerfile: Dockerfile_client
     ports:
-      - 8083:80
+      - 8083:8083
     environment:
       - SERVER_PORT=8083
 
@@ -27,7 +27,7 @@ services:
     build:
       dockerfile: Dockerfile_report
     ports:
-      - 8084:80
+      - 8084:8084
     environment:
       - SERVER_PORT=8084
 
